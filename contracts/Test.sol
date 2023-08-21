@@ -11,8 +11,7 @@ library TestStorage {
         bool value;
     }
 
-    // the diamond storage slot is calculated by hashing a seed string
-    // the seed string in this case is composed of a 32-byte human-readable string, and an arbitrary 32-byte value
+    // the diamond storage slot is calculated by hashing a 32-byte seed string and a 32 zero-bytes
     bytes32 internal constant STORAGE_SLOT_SEED =
         bytes32('diamond.storage.thirtytwobytestr');
     bytes32 internal constant STORAGE_SLOT =
