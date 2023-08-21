@@ -28,8 +28,6 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
     "@nomicfoundation/hardhat-ethers": "^3.0.4",
-    "@solidstate/contracts": "^0.0.58",
-    "@solidstate/spec": "^0.0.58",
     "@typechain/ethers-v6": "^0.5.0",
     "@typechain/hardhat": "^9.0.0",
     "@types/chai": "^4.3.5",
