@@ -1,10 +1,10 @@
 {
-  "name": "TODO",
+  "name": "diamond-storage-preimage-demonstration",
   "version": "0.0.0",
   "private": true,
-  "author": "TODO",
-  "license": "TODO",
-  "description": "TODO",
+  "author": "Nick Barry",
+  "license": "MIT",
+  "description": "Proof-of-concept of a diamond storage preimage attack",
   "keywords": [
     "hardhat",
     "waffle",
@@ -14,7 +14,12 @@
     "ether",
     "eth",
     "buidler",
-    "wow"
+    "wow",
+    "diamond",
+    "proxy",
+    "preimage",
+    "keccak",
+    "keccak256"
   ],
   "scripts": {
     "prepare": "husky install",
