@@ -1,5 +1,6 @@
 import { Test, Test__factory } from '../typechain-types';
 import { expect } from 'chai';
+import { ethers } from 'hardhat';
 
 describe('Test', () => {
   let instance: Test;
