@@ -13,11 +13,10 @@ library TestStorage {
 
     // the diamond storage slot is calculated by hashing a seed string
     // the seed string in this case is composed of a 32-byte human-readable string, and an arbitrary 32-byte value
-    bytes32 internal constant STORAGE_SLOT_PREFIX =
+    bytes32 internal constant STORAGE_SLOT_SEED =
         bytes32('diamond.storage.thirtytwobytestr');
-    bytes32 internal constant STORAGE_SLOT_SUFFIX = bytes32(0);
     bytes32 internal constant STORAGE_SLOT =
-        keccak256(abi.encodePacked(STORAGE_SLOT_PREFIX, STORAGE_SLOT_SUFFIX));
+        keccak256(abi.encodePacked(STORAGE_SLOT_SEED, bytes32(0)));
 
     function layout() internal pure returns (Layout storage l) {
         bytes32 slot = STORAGE_SLOT;
@@ -32,14 +31,14 @@ library TestStorage {
  * @notice demonstrates a preimage attack through an interaction between app storage and diamond storage
  */
 contract Test {
-    // mapping defined at slot equal to TestStorage.STORAGE_SLOT_SUFFIX
+    // mapping defined at storage slot 0
     mapping(bytes32 => bool) private map;
 
     /**
      * @notice write to storage using the mapping defined at slot 0
      */
     function writeToAppStorage() external {
-        map[TestStorage.STORAGE_SLOT_PREFIX] = true;
+        map[TestStorage.STORAGE_SLOT_SEED] = true;
     }
 
     /**
@@ -54,7 +53,7 @@ contract Test {
      * @return value storage value
      */
     function readFromAppStorage() external view returns (bool value) {
-        value = map[TestStorage.STORAGE_SLOT_PREFIX];
+        value = map[TestStorage.STORAGE_SLOT_SEED];
     }
 
     /**
