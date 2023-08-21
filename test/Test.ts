@@ -11,22 +11,22 @@ describe('Test', () => {
   });
 
   it('updates value in diamond storage by writing to app storage', async () => {
-    expect(await instance.getFromAppStorage.staticCall()).to.be.false;
-    expect(await instance.getFromDiamondStorage.staticCall()).to.be.false;
+    expect(await instance.readFromAppStorage.staticCall()).to.be.false;
+    expect(await instance.readFromDiamondStorage.staticCall()).to.be.false;
 
-    await instance.setToAppStorage();
+    await instance.writeToAppStorage();
 
-    expect(await instance.getFromAppStorage.staticCall()).to.be.true;
-    expect(await instance.getFromDiamondStorage.staticCall()).to.be.true;
+    expect(await instance.readFromAppStorage.staticCall()).to.be.true;
+    expect(await instance.readFromDiamondStorage.staticCall()).to.be.true;
   });
 
   it('updates value in app storage by writing to diamond storage', async () => {
-    expect(await instance.getFromAppStorage.staticCall()).to.be.false;
-    expect(await instance.getFromDiamondStorage.staticCall()).to.be.false;
+    expect(await instance.readFromAppStorage.staticCall()).to.be.false;
+    expect(await instance.readFromDiamondStorage.staticCall()).to.be.false;
 
-    await instance.setToDiamondStorage();
+    await instance.writeToDiamondStorage();
 
-    expect(await instance.getFromAppStorage.staticCall()).to.be.true;
-    expect(await instance.getFromDiamondStorage.staticCall()).to.be.true;
+    expect(await instance.readFromAppStorage.staticCall()).to.be.true;
+    expect(await instance.readFromDiamondStorage.staticCall()).to.be.true;
   });
 });

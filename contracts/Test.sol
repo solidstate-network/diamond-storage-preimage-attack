@@ -27,19 +27,19 @@ contract Test {
     // mapping defined at slot equal to TestStorage.STORAGE_SLOT_SUFFIX
     mapping(bytes32 => bool) private map;
 
-    function setToAppStorage() external {
+    function writeToAppStorage() external {
         map[TestStorage.STORAGE_SLOT_PREFIX] = true;
     }
 
-    function setToDiamondStorage() external {
+    function writeToDiamondStorage() external {
         TestStorage.layout().value = true;
     }
 
-    function getFromAppStorage() external view returns (bool value) {
+    function readFromAppStorage() external view returns (bool value) {
         value = map[TestStorage.STORAGE_SLOT_PREFIX];
     }
 
-    function getFromDiamondStorage() external view returns (bool value) {
+    function readFromDiamondStorage() external view returns (bool value) {
         value = TestStorage.layout().value;
     }
 }
